@@ -99,7 +99,7 @@ REST_FRAMEWORK = {
 INSTALLED_APPS = [
     ...,
     'rest_framework',
-    'drf_spectacular',
+    'drf-spectacular',
     'app1',
     'app2',
     'docs',
@@ -139,6 +139,42 @@ Lista de paquetes utilizados:
 Django
 Django Rest Framework
 drf-spectacular
+```
+
+## Opcional: Configuración con MySQL
+
+Si prefieres utilizar MySQL como base de datos en lugar de SQLite, configura `settings.py` de la siguiente manera:
+
+```python
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',  
+        'NAME': 'Crud_DB',   
+        'USER': 'root',                 
+        'PASSWORD': 'admin1234',          
+        'HOST': 'localhost',                   
+        'PORT': '3306',                       
+    }
+}
+```
+
+Asegúrate de instalar el conector de MySQL:
+
+```bash
+pip install mysqlclient
+```
+
+Si tienes problemas con `mysqlclient` en Windows, puedes usar:
+
+```bash
+pip install PyMySQL
+```
+
+Y agregar este código en `settings.py`:
+
+```python
+import pymysql
+pymysql.install_as_MySQLdb()
 ```
 
 ## Notas
